@@ -1,0 +1,16 @@
+Icons used in Figure 5. All come from Bioicons (https://bioicons.com), downloaded 2026-11-06.
+icons_svg_raw/ holds the files as downloaded. icons_svg/ holds the cleaned and cropped
+copies made by prep_svg_icons.py. Only the drawing area and metadata were changed.
+
+CC0 (no attribution needed)
+  patient.svg, blood_sample_tube.svg      Marcel Tisch
+
+CC BY 3.0, Servier Medical Art (https://smart.servier.com)
+  notepad.svg, microscope.svg, dna-1.svg, brain-2.svg, tumor.svg, cancerous-cell-1.svg,
+  macrophage.svg, t-lymphocyte.svg
+
+CC BY 4.0, DBCLS (TogoTV, https://togotv.dbcls.jp)
+  Horizontal_plane_of_the_brain.svg, neuron.svg, Examination_Man.svg
+
+All other shapes in Figure 5 (charts, spatial spots, knowledge network, beams, arrows)
+are drawn in fig5_digital_twin.py.

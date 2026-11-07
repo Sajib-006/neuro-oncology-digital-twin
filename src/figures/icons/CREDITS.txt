@@ -1,0 +1,6 @@
+Icons used in Figure 2a (cropped PNG files), from Bioicons (https://bioicons.com).
+The figure legend gives the credit line: Servier Medical Art (CC BY 3.0) and Xi Chen (CC0),
+via Bioicons.
+
+  brain-1_icon.png, microscope_icon.png, dna-1_icon.png, sc_droplet_icon.png,
+  glassslide-top_icon.png, notepad_icon.png
