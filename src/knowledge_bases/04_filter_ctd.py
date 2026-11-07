@@ -9,7 +9,7 @@ download, which can time out part-way through 130 million rows.
 CTD splits evidence natively: DirectEvidence non-empty = curated, empty = inferred
 through chemicals. Both are kept; 06_build_matrices.py separates them.
 
-Run: python src/knowledge_bases/04_filter_ctd.py   (about 15 minutes)
+Run: python src/knowledge_bases/04_filter_ctd.py
 """
 import os, re, sys, gzip, csv, hashlib, datetime
 

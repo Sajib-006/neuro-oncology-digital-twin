@@ -30,7 +30,7 @@ Reading rule (the |rho| < 0.3 band of the pre-specified test, applied to the int
 "coverage-free" only if the whole 95% interval lies inside (-0.3, 0.3); "coverage-linked"
 if it lies wholly outside; otherwise "unclear".
 
-Run: python src/knowledge_bases/10_similarity_robust.py   (about 30 minutes)
+Run: python src/knowledge_bases/10_similarity_robust.py
 """
 import os, sys, itertools
 import numpy as np

@@ -1,6 +1,6 @@
 # Run the pipeline stage by stage. Paths come from DATA_DIR and OUT_DIR (see src/config.py).
-#   make quick      every figure, table and headline number from the released derived data
-#   make full       everything from raw sources (needs network and SCOPUS_API_KEY; about a day)
+#   make quick      every figure, table and headline number from the archived derived data
+#   make full       everything from raw sources (needs network and SCOPUS_API_KEY)
 # Each stage can also be run on its own, for example `make literature`.
 
 PYTHON ?= python
@@ -14,7 +14,7 @@ S := src
 help:
 	@grep -E '^[a-z0-9-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/'
 
-quick: kb literature trials screening figures  ## all paper outputs from released derived data (about 1 hour)
+quick: kb literature trials screening figures  ## all paper outputs from archived derived data
 
 full: download kb-raw enrichment kb literature-api literature-tags literature trials-api trials devices screening figures  ## everything from raw sources
 
@@ -26,7 +26,7 @@ kb-download:  ## download Open Targets 26.09, CTD and DisGeNET v7.0 (network, ab
 	bash $(S)/knowledge_bases/03_download_ctd.sh
 	bash $(S)/knowledge_bases/05_download_disgenet_v7.sh
 
-kb-raw:  ## build gene lists and matrices from the downloaded files (about 30 minutes)
+kb-raw:  ## build gene lists and matrices from the downloaded files
 	$(PYTHON) $(S)/knowledge_bases/02_opentargets_genes.py 26.09
 	$(PYTHON) $(S)/knowledge_bases/04_filter_ctd.py
 	$(PYTHON) $(S)/knowledge_bases/06_build_matrices.py
@@ -34,7 +34,7 @@ kb-raw:  ## build gene lists and matrices from the downloaded files (about 30 mi
 enrichment:  ## g:Profiler enrichment per class (network)
 	$(PYTHON) -u $(S)/knowledge_bases/08_enrichment.py
 
-kb:  ## similarity, pre-specified null test and robust checks, from the matrices (about 40 minutes)
+kb:  ## similarity, pre-specified null test and robust checks, from the matrices
 	$(PYTHON) $(S)/knowledge_bases/07_similarity.py
 	$(PYTHON) -u $(S)/knowledge_bases/09_null_similarity.py
 	$(PYTHON) -u $(S)/knowledge_bases/10_similarity_robust.py
@@ -48,7 +48,7 @@ literature-api:  ## Scopus counts, records and class counts (network, needs SCOP
 	$(PYTHON) -u $(S)/literature/02_scopus_records.py
 	$(PYTHON) -u $(S)/literature/05_entity_counts.py
 
-literature-tags:  ## tag the stored Scopus records (needs the records, which cannot be shared)
+literature-tags:  ## tag the stored Scopus records (needs the Scopus records)
 	$(PYTHON) $(S)/literature/03_tag_records.py
 
 literature:  ## checks, headline numbers, supplementary tables and sanity checks, from the tags

@@ -15,7 +15,7 @@ release/
 *.xlsx
 *.pdf
 *.log
-# fonts are not shared (license); copy Arial*.ttf here yourself
+# local font files (Arial*.ttf), see README
 src/figures/fonts/
 # python and system files
 __pycache__/

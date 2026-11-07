@@ -6,15 +6,13 @@ Output: <out>/...              the files listed in RELEASE, at the same relative
         <out>/MANIFEST.csv     path, bytes, sha256
         <out>/devices/pdf_manifest.csv   URL, bytes and sha256 of each stored FDA decision summary
 
-What is left out, and why:
-  * Scopus records (lit/records/): titles and abstracts cannot be shared under the Scopus
-    terms. lit/tagged_records.csv.gz is shared without the venue, source_id,
-    aggregation_type and cited_by columns: it keeps the record ID (EID), DOI, year,
-    document type and every derived tag.
-  * The tag-check coder sheets (audit/tag_check/*.xlsx): they contain Scopus abstracts.
-  * Raw third-party downloads (Open Targets parquet files, the full CTD file, the CTD
-    subset, the DisGeNET file, FDA PDFs): get them from the providers (see data/README.md).
-    Pass --third-party to add the CTD subset and the DisGeNET v7.0 file anyway.
+Excluded files (provider terms):
+  * Scopus records (lit/records/) and the tag-check coder sheets, which contain titles and
+    abstracts. lit/tagged_records.csv.gz keeps the EID, DOI, year, document type and all
+    derived tags.
+  * Raw third-party downloads (Open Targets, CTD, DisGeNET, FDA PDFs), which are retrieved
+    from the providers by the download scripts. --third-party adds the CTD subset and the
+    DisGeNET v7.0 file.
 The script also checks that nothing it copies holds an "abstract" column.
 
 Run: python scripts/make_data_release.py --out release [--third-party]

@@ -66,10 +66,9 @@ FALLBACK_FONTS = ["Liberation Sans", "Helvetica", "DejaVu Sans"]
 
 
 def _register_fonts():
-    """Use real Arial (the paper's figures). Arial cannot be shared in this repository:
-    copy Arial.ttf, Arial Bold.ttf and Arial Italic.ttf into FONT_DIR, or install Arial.
-    Without it the figures are drawn with a similar font and a warning; the numbers do
-    not change, but text widths and line breaks can."""
+    """Register Arial from FONT_DIR (Arial.ttf, Arial Bold.ttf, Arial Italic.ttf) or the
+    system fonts. If Arial is unavailable, a metric-similar font is used and a warning
+    is printed; data values are unaffected."""
     if os.path.isdir(FONT_DIR):
         for f in os.listdir(FONT_DIR):
             if f.lower().endswith(".ttf"):

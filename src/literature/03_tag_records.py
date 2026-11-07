@@ -32,7 +32,7 @@ as combining data types (the omics may be only the label).
 
 Duplicates: records are unique by Scopus EID; a second pass drops repeated DOIs,
 keeping the earliest year.
-Run: python src/literature/03_tag_records.py   (about 5 minutes)
+Run: python src/literature/03_tag_records.py
 """
 import os, sys, glob, gzip, json
 import pandas as pd

@@ -2,7 +2,7 @@
 # Create with:  conda env create -f environment.yml   (or mamba)
 # System tools, not installed here: pdftotext (poppler 22.02.0, devices stage only),
 # Google Chrome or Chromium (Figure 5 only), curl and sha256sum (download scripts).
-name: brain-tumor-ai-review
+name: neuro-oncology-digital-twin
 channels:
   - conda-forge
 dependencies:
