@@ -1,0 +1,25 @@
+# data and outputs live outside git (see data/README.md)
+data/*
+!data/README.md
+out/
+figures_out/
+release/
+*.csv
+*.csv.gz
+*.tsv
+*.tsv.gz
+*.jsonl
+*.jsonl.gz
+*.json.gz
+*.parquet
+*.xlsx
+*.pdf
+*.log
+# fonts are not shared (license); copy Arial*.ttf here yourself
+src/figures/fonts/
+# python and system files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.env
