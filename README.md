@@ -136,7 +136,8 @@ The individual stages can also be run separately:
 | `make trials-api`, `make trials` | ClinicalTrials.gov retrieval and trial measures |
 | `make devices` | FDA device list, decision summaries and device measures |
 | `make screening` | merging of the human screening decisions |
-| `make figures` | Figs. 1-5 |
+| `make figures` | Tag validation (Methods) | `screening/04_settle_tag_check.py`, `screening/03_score_tag_check.py` | `tag_check_scores/tag_check_scores.csv`, `tag_check_kappa.csv` |
+| Figs. 1-5 |
 
 Scopus, ClinicalTrials.gov, the FDA device list and CTD are updated over time, so a rerun from
 the primary sources at a later date may give slightly different counts. The archived data
@@ -170,7 +171,17 @@ using written eligibility rules. Disagreements and missing ratings were resolved
 reviewer. `screening/01_final_screening.py` computes Cohen's kappa on records rated by both
 reviewers and produces the final lists. A stratified random sample of 100 articles
 (seed 20261106) was drawn with `screening/02_make_tag_check.py` for manual validation of the
-literature tags, and `screening/03_score_tag_check.py` computes precision, recall and kappa.
+literature tags. Two reviewers coded the sample independently from titles and abstracts, and a
+third reviewer settled the answers on which they differed. `screening/04_settle_tag_check.py`
+combines the three sheets into final labels, and `screening/03_score_tag_check.py` computes
+inter-rater kappa and the precision and recall of each tag against the final labels:
+
+```
+python src/screening/04_settle_tag_check.py --coder A=coder_A.xlsx --coder B=coder_B.xlsx \
+    --third third_review.xlsx --out final_labels.xlsx
+python src/screening/03_score_tag_check.py --coder A=coder_A.xlsx --coder B=coder_B.xlsx \
+    --key tags_sample_KEY.csv --resolved final_labels.xlsx --out tag_check_scores
+```
 
 ## Data sources
 
