@@ -1,11 +1,11 @@
-"""Figure 4: from papers to patients. Three separate groups, each with its own unit.
+"""Figure 5: from papers to patients. Three separate groups, each with its own unit.
 
 Input : lit/tagged_records.csv.gz (literature/03_tag_records.py)
         trials/trial_share_by_start_year_screened.csv, audit/screening_summary.csv,
         audit/screening_final_devices.csv (screening/01_final_screening.py)
         trials/trial_summary.csv (trials/02_trial_metrics.py)
         devices/devices_tagged.csv (devices/01_fda_devices.py)
-Output: FIG_DIR/fig4_translation.{pdf,png}; prints the panel titles (they hold the counts)
+Output: FIG_DIR/fig5_translation.{pdf,png}; prints the panel titles (they hold the counts)
 
 Not a funnel: papers, trials and devices are different groups, not nested stages.
   a  papers: % of AI research papers whose title, abstract or keywords report external
@@ -16,7 +16,7 @@ Not a funnel: papers, trials and devices are different groups, not nested stages
   c  devices: FDA AI-enabled devices per decision year (radiology, neurology and pathology
      panels, the 1,313 searched) and the human-screened ones indicated for primary brain
      tumors. Metastasis-only devices are not counted.
-Run: python src/figures/fig4_translation.py
+Run: python src/figures/fig5_translation.py
 """
 import os, sys
 import numpy as np
@@ -123,7 +123,7 @@ def main():
     for ax in axs:
         print("  title:", ax.get_title(loc="center") or ax.get_title(loc="left"))
     for ext in ("pdf", "png"):
-        p = config.fig_path(f"fig4_translation.{ext}")
+        p = config.fig_path(f"fig5_translation.{ext}")
         fig.savefig(p, dpi=400)
         print("written ->", p)
 

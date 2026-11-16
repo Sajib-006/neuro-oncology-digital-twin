@@ -1,7 +1,7 @@
-"""Figure 5: a roadmap for a brain tumor digital twin, and where current research stands.
+"""Figure 6: a roadmap for a brain tumor digital twin, and where current research stands.
 
 Input : icons_svg/*.svg (cleaned Bioicons files, see icons_svg/CREDITS.txt); no data files
-Output: FIG_DIR/fig5_digital_twin.{svg,html,pdf,png}
+Output: FIG_DIR/fig6_digital_twin.{svg,html,pdf,png}
 Needs Google Chrome or Chromium (headless, to print the SVG to PDF and PNG) and Arial
 (text widths are measured with Arial.ttf, so the layout matches the paper).
 Set CHROME to the browser path if it is not found automatically.
@@ -16,7 +16,7 @@ circle = none found. Dark numbered squares: the three gaps measured in this revi
 All charts and small glyphs are drawn here. Content follows the studies cited in
 Section 6 (Lipkova 2019, Ezhov 2023, Rockne 2010, Hormuth 2021, Balcerak 2024, Miniere 2025).
 The script stops with an error if any text is wider than its space.
-Run: python src/figures/fig5_digital_twin.py
+Run: python src/figures/fig6_digital_twin.py
 """
 import base64, os, shutil, subprocess, sys
 import numpy as np
@@ -394,13 +394,13 @@ def build():
 
     # ================= key =================
     T(1.5, 99.0, "Published prototype", pt=6.5, bold=True, anchor="start")
-    k2 = 36.5 + text_w("Uneven knowledge across tumors (Fig. 1)", 6.5) + 11.0
+    k2 = 36.5 + text_w("Uneven knowledge across tumors (Fig. 2)", 6.5) + 11.0
     status(36.5, 99.0, "Exists", True, anchor="start")
     status(k2, 99.0, "None found", False, anchor="start")
     T(1.5, 103.6, "Gaps measured in this review", pt=6.5, bold=True, anchor="start")
     kx = 36.5
-    for i, s in enumerate(["Uneven knowledge across tumors (Fig. 1)", "Data types studied apart (Figs 2, 3)",
-                           "Little validation in patients (Fig. 4)"]):
+    for i, s in enumerate(["Uneven knowledge across tumors (Fig. 2)", "Data types studied apart (Figs 3, 4)",
+                           "Little validation in patients (Fig. 5)"]):
         gap(kx + 1.5, 102.9, i + 1)
         T(kx + 4.0, 103.6, s, pt=6.5, anchor="start")
         kx += text_w(s, 6.5) + 11.0
@@ -412,7 +412,7 @@ def main():
            f'width="{W}mm" height="{H}mm" viewBox="0 0 {W} {H}" '
            f'font-family="Arial, Helvetica, sans-serif">{defs()}'
            f'<rect width="{W}" height="{H}" fill="white"/>' + "".join(out) + "</svg>")
-    base = str(config.fig_path("fig5_digital_twin"))
+    base = str(config.fig_path("fig6_digital_twin"))
     open(base + ".svg", "w").write(svg)
     html = (f'<!doctype html><html><head><meta charset="utf-8"><style>@page{{size:{W}mm {H}mm;margin:0}}'
             f'html,body{{margin:0;padding:0}}svg{{display:block}}</style></head><body>{svg}</body></html>')

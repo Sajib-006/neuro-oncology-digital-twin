@@ -1,7 +1,7 @@
-"""Figure 3: few AI studies combine data types.
+"""Figure 4: few AI studies combine data types.
 
 Input : lit/tagged_records.csv.gz (literature/03_tag_records.py), through lit_data.focused_research()
-Output: FIG_DIR/fig3_integration.{pdf,png}; prints the numbers shown in panels b and c
+Output: FIG_DIR/fig4_integration.{pdf,png}; prints the numbers shown in panels b and c
 
   a  data type x task: log2(observed / expected) co-occurrence in AI research papers
      2015-2026, expected = row total x column total / N. Counts printed in cells; cells
@@ -11,7 +11,7 @@ Output: FIG_DIR/fig3_integration.{pdf,png}; prints the numbers shown in panels b
      (title/keywords or >= 2 abstract mentions) and lenient (any mention). The word
      "multimodal" is NOT used to measure this.
   c  which data-type pairs are named together (strict), pooled 2015-2026.
-Run: python src/figures/fig3_integration.py
+Run: python src/figures/fig4_integration.py
 """
 import os, sys, itertools
 import numpy as np
@@ -148,7 +148,7 @@ def main():
     panel_share(fig.add_subplot(gs[0, 1]), df)
     panel_pairs(fig.add_subplot(gs[1, 1]), df)
     for ext in ("pdf", "png"):
-        p = config.fig_path(f"fig3_integration.{ext}")
+        p = config.fig_path(f"fig4_integration.{ext}")
         fig.savefig(p, dpi=400)
         print("written ->", p)
 

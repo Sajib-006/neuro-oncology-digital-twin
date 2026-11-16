@@ -1,8 +1,8 @@
-"""Figure 2: how AI entered brain tumor research.
+"""Figure 3: how AI entered brain tumor research.
 
 Input : lit/counts_by_year_focused_research.csv (literature/01_scopus_counts.py) and
         lit/tagged_records.csv.gz (literature/03_tag_records.py)
-Output: FIG_DIR/fig2_landscape.{pdf,png}; prints the counts shown in panel b
+Output: FIG_DIR/fig3_landscape.{pdf,png}; prints the counts shown in panel b
 
   a  AI share of papers per data type, by year (Scopus counts, focused form, articles and
      conference papers). Lines start once a data type reaches 50 papers a year. A key
@@ -12,7 +12,7 @@ Output: FIG_DIR/fig2_landscape.{pdf,png}; prints the counts shown in panel b
      columns are years, the cell shows the % of AI research papers that name the family
      or task. ColorBrewer YlGnBu on a log scale.
 Icons: Bioicons (see icons/CREDITS.txt). 2026 is partial (data to 24 Sep).
-Run: python src/figures/fig2_landscape.py
+Run: python src/figures/fig3_landscape.py
 """
 import os, sys
 import numpy as np
@@ -171,7 +171,7 @@ def main():
     letter("a", 0.012, 0.99); letter("c", 0.012, 0.555)
     letter("b", ax_c.get_position().x0 - 0.17, 0.99)
     for ext in ("pdf", "png"):
-        p = config.fig_path(f"fig2_landscape.{ext}")
+        p = config.fig_path(f"fig3_landscape.{ext}")
         fig.savefig(p, dpi=400)
         print("written ->", p)
 

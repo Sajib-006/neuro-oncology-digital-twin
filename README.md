@@ -10,14 +10,14 @@ The review is supported by four analyses:
 
 1. **Knowledge-base coverage.** Gene associations for ten primary brain tumor classes in
    Open Targets, CTD and DisGeNET, and a test of whether tumor-tumor similarity reflects
-   database coverage (Fig. 1a-e).
+   database coverage (Fig. 2a-e).
 2. **Literature survey.** 13,423 research articles on AI for brain tumors retrieved from
    Scopus and annotated with rule-based tags for data type, model family, clinical task and
-   evaluation design (Figs. 1f-g, 2, 3 and 4a).
+   evaluation design (Figs. 2f-g, 3, 4 and 5a).
 3. **Clinical translation.** AI-related clinical trials from ClinicalTrials.gov and AI-enabled
    medical devices from the FDA list, screened by two independent reviewers with
-   adjudication by a third (Fig. 4b-c; Supplementary Tables S7 and S8).
-4. **Digital-twin framework.** The schematic in Fig. 5.
+   adjudication by a third (Fig. 5b-c; Supplementary Tables S7 and S8).
+4. **Figures without data.** The overview in Fig. 1 and the digital-twin roadmap in Fig. 6.
 
 ```
 Scopus API ----------------> literature/01-02, 05 --> literature/03 (tags) --> literature/04, 06-09
@@ -53,12 +53,14 @@ inputs and outputs.
 
 - Linux or macOS. The results in the paper were generated on Ubuntu 22.04 with Python 3.11.16.
 - Python 3.11 with the packages pinned in `environment.yml` and `requirements.txt`.
-- Google Chrome or Chromium (Fig. 5 only), used to render the SVG to PDF and PNG.
+- Google Chrome or Chromium (Fig. 6 only), used to render the SVG to PDF and PNG.
+- The cairo graphics library (Fig. 1 only), used by CairoSVG to rasterize the icons. The
+  slide is saved as PPTX and exported to PDF with PowerPoint or LibreOffice.
   Set `CHROME=/path/to/chrome` if it is not on the default path.
 - `pdftotext` from poppler (version 22.02.0 in the paper; device stage only).
 - `curl` and `sha256sum` (download scripts).
 - Arial font files (`Arial.ttf`, `Arial Bold.ttf`, `Arial Italic.ttf`) in `src/figures/fonts/`,
-  or a folder given by `FONT_DIR`. If Arial is missing, Figs. 1-4 fall back to a metric-similar
+  or a folder given by `FONT_DIR`. If Arial is missing, Figs. 2-5 fall back to a metric-similar
   font.
 
 ## Installation
@@ -136,8 +138,7 @@ The individual stages can also be run separately:
 | `make trials-api`, `make trials` | ClinicalTrials.gov retrieval and trial measures |
 | `make devices` | FDA device list, decision summaries and device measures |
 | `make screening` | merging of the human screening decisions |
-| `make figures` | Tag validation (Methods) | `screening/04_settle_tag_check.py`, `screening/03_score_tag_check.py` | `tag_check_scores/tag_check_scores.csv`, `tag_check_kappa.csv` |
-| Figs. 1-5 |
+| `make figures` | Figs. 1-6 |
 
 Scopus, ClinicalTrials.gov, the FDA device list and CTD are updated over time, so a rerun from
 the primary sources at a later date may give slightly different counts. The archived data
@@ -147,22 +148,24 @@ reproduce the published values exactly.
 
 | Paper item | Script | Output (under `OUT_DIR`) |
 |---|---|---|
-| Fig. 1a-b; genes per tumor class | `knowledge_bases/06_build_matrices.py` | `support_counts.csv` |
-| Fig. 1c-d; similarity correlations | `knowledge_bases/07_similarity.py` | `similarity_long.csv` |
+| Fig. 2a-b; genes per tumor class | `knowledge_bases/06_build_matrices.py` | `support_counts.csv` |
+| Fig. 2c-d; similarity correlations | `knowledge_bases/07_similarity.py` | `similarity_long.csv` |
 | Pre-specified null test | `knowledge_bases/09_null_similarity.py` | `null_similarity/size_check.csv` |
-| Fig. 1e; Curveball and size-matched checks | `knowledge_bases/10_similarity_robust.py` | `similarity_robust/size_check_robust.csv` |
-| Fig. 1f-g; AI share per tumor class | `literature/05_entity_counts.py` | `lit/entity_counts.csv` |
-| Fig. 2a; AI share per data type | `literature/01_scopus_counts.py` | `lit/counts_by_year_focused_research.csv` |
-| Figs. 2b-c, 3 and 4a | `literature/03_tag_records.py` | `lit/tagged_records.csv.gz` |
+| Fig. 2e; Curveball and size-matched checks | `knowledge_bases/10_similarity_robust.py` | `similarity_robust/size_check_robust.csv` |
+| Fig. 2f-g; AI share per tumor class | `literature/05_entity_counts.py` | `lit/entity_counts.csv` |
+| Fig. 3a; AI share per data type | `literature/01_scopus_counts.py` | `lit/counts_by_year_focused_research.csv` |
+| Figs. 3b-c, 4 and 5a | `literature/03_tag_records.py` | `lit/tagged_records.csv.gz` |
 | Literature statistics in the text | `literature/06_headline_numbers.py` | `lit/headline_numbers.csv`, `lit/share_by_year.csv` |
 | Supplementary Note 1 (automatic checks) | `literature/04_checks.py` | `lit/checks.csv` |
 | Supplementary Tables S1 and S4 | `literature/07_supplement_tables.py` | `supplement/S_search_blocks.tex`, `supplement/S_entities.tex` |
 | Trial counts | `trials/01_pull_trials.py`, `trials/02_trial_metrics.py` | `trials/provenance.csv`, `trials/trial_summary.csv` |
 | Device counts | `devices/01_fda_devices.py` | `devices/provenance.csv` |
 | Screening results, inter-rater agreement | `screening/01_final_screening.py` | `audit/screening_summary.csv` |
-| Fig. 4b-c | `screening/01_final_screening.py` | `trials/trial_share_by_start_year_screened.csv`, `audit/screening_final_devices.csv` |
+| Fig. 5b-c | `screening/01_final_screening.py` | `trials/trial_share_by_start_year_screened.csv`, `audit/screening_final_devices.csv` |
 | Supplementary Tables S7 and S8 | `screening/01_final_screening.py` | `audit/screening_final_trials.csv`, `audit/screening_final_devices.csv` |
-| Figs. 1-5 | `figures/fig1_knowledge.py` to `figures/fig5_digital_twin.py` | `FIG_DIR/fig1_knowledge.pdf` to `fig5_digital_twin.pdf` |
+| Tag validation (Methods) | `screening/04_settle_tag_check.py`, `screening/03_score_tag_check.py` | `tag_check_scores/tag_check_scores.csv`, `tag_check_kappa.csv` |
+| Fig. 1 (overview) | `figures/fig1_overview.py` | `FIG_DIR/fig1_overview.pptx` (editable; exported to PDF) |
+| Figs. 2-6 | `figures/fig2_knowledge.py` to `figures/fig6_digital_twin.py` | `FIG_DIR/fig2_knowledge.pdf` to `fig6_digital_twin.pdf` |
 
 ## Human screening and tag validation
 
@@ -194,7 +197,8 @@ python src/screening/03_score_tag_check.py --coder A=coder_A.xlsx --coder B=code
 | g:Profiler | e114_eg62_p19 (KEGG, Reactome) | public web service |
 | ClinicalTrials.gov | API 2.0.5, data of 24 Sep 2026 | public registry |
 | FDA AI-enabled medical devices list | update of 4 Sep 2026 | US government public data |
-| Icons (Fig. 5) | Bioicons: Servier Medical Art, DBCLS TogoTV, Marcel Tisch | CC BY 3.0, CC BY 4.0, CC0 (`src/figures/icons_svg_raw/CREDITS.txt`) |
+| Icons (Fig. 6) | Bioicons: Servier Medical Art, DBCLS TogoTV, Marcel Tisch | CC BY 3.0, CC BY 4.0, CC0 (`src/figures/icons_svg_raw/CREDITS.txt`) |
+| Icons (Fig. 1) | Bioicons: Servier Medical Art, DBCLS TogoTV, Chenxin Li and CC0 authors | CC BY 3.0, CC BY 4.0, CC0 (`src/figures/icons_overview/CREDITS.txt`) |
 
 ## Citation
 

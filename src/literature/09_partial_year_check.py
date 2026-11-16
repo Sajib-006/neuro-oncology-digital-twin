@@ -1,5 +1,5 @@
 """Partial-year check: is the 2026 rise in external validation and prospective studies real,
-or a change in the mix of journal articles and conference papers? (Fig. 4a, 2026 values)
+or a change in the mix of journal articles and conference papers? (Fig. 5a, 2026 values)
 
 Input : lit/tagged_records.csv.gz   (03_tag_records.py), through lit_data.focused_research()
 Output: printed only: per year 2024-2026, the conference-paper share and the X2 and X3

@@ -1,4 +1,4 @@
-"""ClinicalTrials.gov inventory of AI trials in primary brain tumors (Fig. 4b, Table S7).
+"""ClinicalTrials.gov inventory of AI trials in primary brain tumors (Fig. 5b, Table S7).
 
 Input : the ClinicalTrials.gov API v2 (network, no key)
 Output: trials/raw/all_brain_tumour_trials.json.gz   all trials matching the condition query

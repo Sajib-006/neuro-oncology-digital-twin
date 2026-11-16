@@ -1,4 +1,4 @@
-"""FDA AI-enabled devices that may concern brain tumors (Fig. 4c, Table S8).
+"""FDA AI-enabled devices that may concern brain tumors (Fig. 5c, Table S8).
 
 Input : devices/raw/f_178541   FDA list of AI-enabled devices (aiml-devices-csv.csv,
                                page updated 4 September 2026, downloaded 25 September 2026)

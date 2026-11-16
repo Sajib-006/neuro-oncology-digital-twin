@@ -1,4 +1,4 @@
-"""Scopus hit counts by year: denominators, the AI set and each data type (Fig. 2a, checks).
+"""Scopus hit counts by year: denominators, the AI set and each data type (Fig. 3a, checks).
 
 Input : the Scopus Search API (network; needs SCOPUS_API_KEY in the environment)
 Output: lit/queries_<form>.csv          query registry with the exact query strings
@@ -15,7 +15,7 @@ Per year 2000-2026:
 Nesting holds by construction (the AI query = the general query AND A); 04_checks.py
 checks it on the returned numbers.
 
-The paper uses --form focused --research (Fig. 2a) and --form visible (checks); the
+The paper uses --form focused --research (Fig. 3a) and --form visible (checks); the
 counts were pulled on 2026-09-28. The output file is appended to, so a stopped run resumes.
 Run: python -u src/literature/01_scopus_counts.py --form focused --research
 """

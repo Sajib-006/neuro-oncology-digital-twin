@@ -1,4 +1,4 @@
-"""Panels f and g of Figure 1 (AI attention per tumor class), used by fig1_knowledge.py.
+"""Panels f and g of Figure 2 (AI attention per tumor class), used by fig2_knowledge.py.
 
 Input : lit/entity_counts.csv (literature/05_entity_counts.py) and support_counts.csv
         (knowledge_bases/06_build_matrices.py)

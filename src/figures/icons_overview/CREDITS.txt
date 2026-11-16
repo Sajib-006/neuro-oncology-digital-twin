@@ -1,0 +1,15 @@
+Icons in the overview figure, all from Bioicons (https://bioicons.com), downloaded 2026-11-16.
+svg/ holds the files as downloaded; overview_fig_pptx.py rasterizes and crops them.
+
+CC BY 3.0, Servier Medical Art (https://smart.servier.com)
+  Servier__brain-2.svg, Servier__microscope.svg, Servier__glassslide-top.svg, Servier__dna-1.svg, notepad.svg
+CC BY 4.0, DBCLS (TogoTV)
+  DBCLS__Horizontal_plane_of_the_brain.svg, DBCLS__DNA_sequencer.svg, Examination_Man.svg
+CC BY 4.0, Chenxin Li
+  ChenxinLi__Network.svg
+CC0
+  James-Lloyd__SingleCell_Clustering_DataReduction_UMAP.svg (James Lloyd), Simon_Dürr__neural-network-1.svg
+  (Simon Duerr), OpenClipart__database-colored.svg (OpenClipart), Marcel_Tisch__patient.svg and
+  Marcel_Tisch__drugs.svg (Marcel Tisch)
+Drawn in the script: MRI/PET frames and lesions, H&E tissue, spatial spots, LLM bubble, report lines,
+fusion inputs and arrows, gap markers, patient-twin loop.

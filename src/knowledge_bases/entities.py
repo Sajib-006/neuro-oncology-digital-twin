@@ -1,4 +1,4 @@
-"""Tumor classes for the knowledge-base coverage analysis (Figure 1, Supplementary Table S4).
+"""Tumor classes for the knowledge-base coverage analysis (Figure 2, Supplementary Table S4).
 
 Ten WHO CNS5 classes, each pinned to an ontology identifier. Open Targets is queried by
 identifier; CTD and DisGeNET, which use other identifiers, are matched by disease name with

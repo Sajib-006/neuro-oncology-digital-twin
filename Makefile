@@ -77,15 +77,16 @@ tag-check:  ## draw the tag hand-check sample (needs the Scopus records)
 	$(PYTHON) $(S)/screening/02_make_tag_check.py
 
 # ---------------------------------------------------------------- figures
-figures:  ## Figures 1 to 4 from derived data, then Figure 5 (needs Chrome)
-	$(PYTHON) $(S)/figures/fig1_knowledge.py
-	$(PYTHON) $(S)/figures/fig2_landscape.py
-	$(PYTHON) $(S)/figures/fig3_integration.py
-	$(PYTHON) $(S)/figures/fig4_translation.py
-	$(PYTHON) $(S)/figures/fig5_digital_twin.py
+figures:  ## Figure 1 (PPTX), Figures 2 to 5 from derived data, then Figure 6 (needs Chrome)
+	$(PYTHON) $(S)/figures/fig1_overview.py
+	$(PYTHON) $(S)/figures/fig2_knowledge.py
+	$(PYTHON) $(S)/figures/fig3_landscape.py
+	$(PYTHON) $(S)/figures/fig4_integration.py
+	$(PYTHON) $(S)/figures/fig5_translation.py
+	$(PYTHON) $(S)/figures/fig6_digital_twin.py
 
-fig5:  ## Figure 5 only
-	$(PYTHON) $(S)/figures/fig5_digital_twin.py
+fig6:  ## Figure 6 only
+	$(PYTHON) $(S)/figures/fig6_digital_twin.py
 
 # ---------------------------------------------------------------- data release
 release:  ## collect shareable derived files into ./release with SHA256SUMS

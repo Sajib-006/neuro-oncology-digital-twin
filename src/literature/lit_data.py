@@ -1,4 +1,4 @@
-"""Shared data access for the literature stages and figures (Figs 2-4).
+"""Shared data access for the literature stages and figures (Figs 3-5).
 
 Input : lit/tagged_records.csv.gz, lit/counts_by_year_<form>.csv
 Output: none (helper module: the main paper set, labels and Wilson intervals)

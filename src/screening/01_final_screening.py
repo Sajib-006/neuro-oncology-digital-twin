@@ -1,4 +1,4 @@
-"""Final human screening of trials and devices (Methods; Fig. 4b,c; Tables S7 and S8).
+"""Final human screening of trials and devices (Methods; Fig. 5b,c; Tables S7 and S8).
 
 Two reviewers screened independently; a third reviewer settled every row with a
 difference or a missing rating.

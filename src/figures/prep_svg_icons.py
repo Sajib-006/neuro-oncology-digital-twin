@@ -1,4 +1,4 @@
-"""Clean and crop the Bioicons SVGs used in Figure 5 (kept as vector). Optional: the
+"""Clean and crop the Bioicons SVGs used in Figure 6 (kept as vector). Optional: the
 cleaned files are already in icons_svg/.
 
 Input : icons_svg_raw/*.svg   (files as downloaded from Bioicons)
