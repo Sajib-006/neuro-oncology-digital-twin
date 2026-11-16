@@ -67,7 +67,7 @@ PARTS = [  # title lines, task lines, group, icon set, gap number, chips (exampl
      "data", "text", None, ["ChatGPT", "GPT-4"]),
     (["Combining", "data types"], ["One model, many inputs", "Survival and subtype", "Rare in published work"],
      "comb", "fusion", 2, ["Pathomic Fusion"]),
-    (["Knowledge bases"], ["Genes and drugs per tumor", "Uneven across tumors"],
+    (["Knowledge bases"], ["Genes per tumor class", "Uneven across tumors"],
      "comb", "kb", 1, ["Open Targets", "CTD", "DisGeNET"]),
     (["Trials, devices", "and surgery"], ["Diagnosis during surgery", "Trial results not posted",
      "Few cleared devices"], "pat", "clinic", 3, ["SRH", "FastGlioma", "Sturgeon"]),

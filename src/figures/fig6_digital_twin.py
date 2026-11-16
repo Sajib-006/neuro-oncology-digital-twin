@@ -236,14 +236,15 @@ def build():
 
     def item(y, title, sub, draw):
         draw(13.0, y, 6.4, 6.4)
-        T(21.0, y + 4.0, title, pt=6.5, anchor="start", maxw=22.5)
-        T(21.0, y + 5.3, sub, pt=6.0, anchor="start", color=INK2, maxw=22.5)
+        T(21.0, y + (3.0 if sub else 4.0), title, pt=6.5, anchor="start", maxw=22.5)
+        if sub:
+            T(21.0, y + 5.6, sub, pt=6.0, anchor="start", color=INK2, maxw=22.5)
         return y + 3.2
 
     mids = [
         item(11.0, "MRI and PET", "", lambda x, y, w, h: mri(x, y, h, 1.0)),
-        item(18.5, "Clinical records", "", lambda x, y, w, h: icon("notepad", x, y, w, h)),
-        item(26.0, "Liquid biopsy", "", lambda x, y, w, h: icon("blood_sample_tube", x, y, w, h)),
+        item(18.5, "Clinical records", "Treatments, symptoms", lambda x, y, w, h: icon("notepad", x, y, w, h)),
+        item(26.0, "Liquid biopsy", "Not yet routine", lambda x, y, w, h: icon("blood_sample_tube", x, y, w, h)),
         item(39.2, "Pathology", "", lambda x, y, w, h: icon("microscope", x, y, w, h)),
         item(46.7, "Methylation, omics", "", lambda x, y, w, h: icon("dna-1", x, y, w, h)),
         item(54.2, "Spatial omics", "", lambda x, y, w, h: spatial_glyph(x + 0.4, y + 0.4, 5.6)),
