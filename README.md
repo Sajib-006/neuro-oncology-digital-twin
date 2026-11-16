@@ -1,7 +1,7 @@
 # Artificial Intelligence toward Precision Neuro-Oncology
 
 This repository contains the analysis code for the review *Artificial intelligence toward
-digital-twin precision neuro-oncology* (Acharjee Dip et al., 2026). All quantitative results,
+precision neuro-oncology* (Acharjee Dip et al., 2026). All quantitative results,
 figures and generated supplementary tables in the paper are produced by the scripts here.
 
 ## Overview
