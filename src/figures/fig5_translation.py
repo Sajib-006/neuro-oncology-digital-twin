@@ -105,7 +105,7 @@ def panel_devices(ax):
                     color=BLUE, fontweight="bold")
     ax.set_xticks([2015, 2020, 2025])
     ax.set_ylabel("Devices cleared per year")
-    ax.set_ylim(0, allk.max() * 1.45)
+    ax.set_ylim(0, allk.max() * 1.65)
     ax.legend(loc="upper left", fontsize=style.SMALL_PT, handlelength=1.0)
     ax.set_title(f"FDA devices ({len(bt)} of {len(t):,} searched)", loc="left",
                  fontsize=style.SMALL_PT, pad=3)

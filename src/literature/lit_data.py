@@ -13,9 +13,9 @@ PARTIAL_YEAR = 2026          # records pulled 2026-09-24: about 73% of the year
 YEARS = list(range(2015, 2027))
 
 MOD_LABEL = {
-    "M1_neuroimaging": "Neuroimaging", "M2_pathology": "Pathology",
+    "M1_neuroimaging": "Imaging", "M2_pathology": "Pathology",
     "M3_bulk_omics": "Bulk omics", "M4_single_cell": "Single-cell",
-    "M5_spatial": "Spatial omics", "M6_clinical_text": "Clinical text / EHR",
+    "M5_spatial": "Spatial omics", "M6_clinical_text": "Clinical text",
 }
 ARCH_LABEL = {
     "R1_classical": "Classical ML", "R2_cnn": "CNNs", "R3_transformer": "Transformers",

@@ -73,7 +73,7 @@ PARTS = [  # title lines, task lines, group, icon set, gap number, chips (exampl
      "Few cleared devices"], "pat", "clinic", 3, ["SRH", "FastGlioma", "Sturgeon"]),
 ]
 GAPS = [("1", "Uneven tumor knowledge"), ("2", "Data types studied apart"),
-        ("3", "Little patient testing")]
+        ("3", "Little testing in patients")]
 
 prs = Presentation()
 prs.slide_width, prs.slide_height = Inches(W), Inches(H)

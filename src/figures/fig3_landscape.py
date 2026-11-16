@@ -78,12 +78,15 @@ def panel_lines(ax, fig, cnt):
     n = len(ends)
     ys = np.linspace(0.95, 0.10, n)
     for (v, mk, lab, col), yk in zip(ends, ys):
-        ax.annotate("", xy=(2026, v), xycoords="data", xytext=(1.06, yk), textcoords="axes fraction",
+        ax.annotate("", xy=(2026, v), xycoords="data", xytext=(1.045, yk), textcoords="axes fraction",
                     arrowprops=dict(arrowstyle="-", color="#b5b5b5", lw=0.6, ls=(0, (1.5, 1.2)),
                                     shrinkA=0, shrinkB=3),
                     annotation_clip=False)
-        icon(ax, MOD_ICON[mk], (1.105, yk), 3.6, fig, width_mm=4.6)
-        ax.text(1.17, yk, lab.replace("Clinical text / EHR", "Clinical text"), transform=ax.transAxes,
+        # short line in the data type's color, so each name matches its line
+        ax.plot([1.05, 1.085], [yk, yk], transform=ax.transAxes, color=col, lw=2.2,
+                solid_capstyle="round", clip_on=False, zorder=5)
+        icon(ax, MOD_ICON[mk], (1.13, yk), 3.6, fig, width_mm=4.6)
+        ax.text(1.19, yk, lab, transform=ax.transAxes,
                 ha="left", va="center", fontsize=style.SMALL_PT, color=style.INK)
 
 
