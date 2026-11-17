@@ -164,6 +164,7 @@ reproduce the published values exactly.
 | Fig. 5b-c | `screening/01_final_screening.py` | `trials/trial_share_by_start_year_screened.csv`, `audit/screening_final_devices.csv` |
 | Supplementary Tables S7 and S8 | `screening/01_final_screening.py` | `audit/screening_final_trials.csv`, `audit/screening_final_devices.csv` |
 | Tag validation (Methods) | `screening/04_settle_tag_check.py`, `screening/03_score_tag_check.py` | `tag_check_scores/tag_check_scores.csv`, `tag_check_kappa.csv` |
+| Supplementary Fig. S1 (analysis workflow) | `figures/figS1_workflow.py` | `FIG_DIR/figS1_workflow.pdf` |
 | Fig. 1 (overview) | `figures/fig1_overview.py` | `FIG_DIR/fig1_overview.pptx` (editable; exported to PDF) |
 | Figs. 2-6 | `figures/fig2_knowledge.py` to `figures/fig6_digital_twin.py` | `FIG_DIR/fig2_knowledge.pdf` to `fig6_digital_twin.pdf` |
 
