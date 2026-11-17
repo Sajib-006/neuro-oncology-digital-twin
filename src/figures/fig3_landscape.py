@@ -143,19 +143,39 @@ def panel_heatmap(ax, fig, df):
 
 
 def panel_rare(ax, df):
-    rare = [("R7_agentic", "Agentic AI"), ("R8_KG", "Knowledge graphs"),
-            ("X4_regulatory", "Regulatory clearance"), ("X9_digital_twin", "Digital twin")]
-    vals = [int(df[c].sum()) for c, _ in rare]
-    print("  panel b:", ", ".join(f"{l} {v}" for (_, l), v in zip(rare, vals)), f"(of {len(df):,})")
-    y = np.arange(len(rare))
-    ax.barh(y, vals, height=0.58, color=O["blue"], lw=0)
-    for yi, v in zip(y, vals):
-        ax.text(v + 0.3, yi, str(v), va="center", fontsize=style.SMALL_PT, color=style.INK)
-    ax.set_yticks(y); ax.set_yticklabels([l for _, l in rare])
-    ax.tick_params(axis="y", length=0)
-    ax.set_xlim(0, max(vals) * 1.3)
-    ax.set_xlabel(f"Papers, 2015–2026 (of {len(df):,})")
+    """Unit chart: one rounded square per paper, one color per topic (counts are small)."""
+    from matplotlib.patches import FancyBboxPatch
+    rare = [("R7_agentic", "Agentic AI", "#F39B7F"), ("R8_KG", "Knowledge graphs", "#00A087"),
+            ("X4_regulatory", "Regulatory clearance", "#E64B35"), ("X9_digital_twin", "Digital twin", "#3C5488")]
+    vals = [int(df[c].sum()) for c, _, _ in rare]
+    print("  panel b:", ", ".join(f"{l} {v}" for (_, l, _), v in zip(rare, vals)), f"(of {len(df):,})")
+    per_row, gap, size = 6, 0.2, 0.8
+    slots = int(np.ceil(max(vals) / per_row)) * per_row          # same grid for every topic
+    nrow = slots // per_row
+    pitch = nrow + 0.9                                           # vertical space per topic
+    centers = []
+    for ti, ((_, lab, col), v) in enumerate(zip(rare, vals)):
+        y0 = ti * pitch
+        for k in range(slots):
+            r, c = divmod(k, per_row)
+            ax.add_patch(FancyBboxPatch((c + gap / 2, y0 + (nrow - 1 - r) + gap / 2), size, size,
+                                        boxstyle="round,pad=0,rounding_size=0.2",
+                                        facecolor=col if k < v else "#efefec", edgecolor="none"))
+        yc = y0 + nrow / 2
+        centers.append(yc)
+        ax.text(per_row + 0.35, yc, str(v), va="center", ha="left",
+                fontsize=style.SMALL_PT + 2, fontweight="bold", color=col)
+    ax.set_yticks(centers); ax.set_yticklabels([l for _, l, _ in rare])
+    ax.tick_params(axis="y", length=0, pad=4, labelcolor=style.INK)
+    ax.set_xticks([])
+    for sp in ("top", "right", "bottom", "left"):
+        ax.spines[sp].set_visible(False)
+    ax.set_xlim(0, per_row + 1.4)
+    ax.set_ylim(-0.3, len(rare) * pitch - 0.6)
+    ax.set_aspect("equal")
     ax.set_title("Rarely named topics", loc="center", fontsize=style.SMALL_PT, pad=4)
+    ax.text(0.5, -0.06, f"One square = one paper (of {len(df):,}, 2015–2026)", transform=ax.transAxes,
+            ha="center", va="top", fontsize=style.SMALL_PT, color=style.INK_MUTED)
 
 
 def main():
