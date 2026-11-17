@@ -1,7 +1,7 @@
 # Derived data
 
-The derived data are not stored in git. They will be deposited as one archive (DOI to be
-added). Unpack it here, or anywhere and point `DATA_DIR` at it. The archive is made by
+The derived data are not stored in git. They are attached to release v1.0.0 of this repository
+as one archive (https://github.com/Sajib-006/neuro-oncology-digital-twin/releases/tag/v1.0.0). Unpack it here, or anywhere and point `DATA_DIR` at it. The archive is made by
 `scripts/make_data_release.py`, which also writes `SHA256SUMS` (full sha256 of every file;
 check with `sha256sum -c SHA256SUMS`) and `MANIFEST.csv`.
 
@@ -91,6 +91,8 @@ levels: OpenTargets curatedplusdrug and DisGeNET curatednoctd.
 | `audit/screening_summary.csv` | screening/01 | name, value (kappa, agreement, final counts, roles, results posting, start-year shares) |
 | `audit/tag_check/tag_check_strata.csv` | screening/02 | stratum, pool_N, sampled_n, weight |
 | `audit/tag_check/tags_sample_KEY.csv` | screening/02 | the 100 sampled papers: paper_id, eid, doi, year, stratum, weight and their tags |
+| `audit/tag_check/tag_check_coder_A.xlsx`, `tag_check_coder_B.xlsx` | the two coders | sheet "Papers": paper_id and the answers (Yes, No, Unsure) to the ten questions; titles, abstracts and notes removed |
+| `audit/tag_check/tag_check_final_labels.xlsx` | screening/04 | the same layout with the final answer after the third review |
 
 ## Supplementary tables
 

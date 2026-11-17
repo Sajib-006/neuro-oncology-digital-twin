@@ -77,8 +77,9 @@ Alternatively, create a Python 3.11 virtual environment and run
 
 ## Data
 
-The derived data used in the paper are archived on Zenodo (DOI to be added). Download the
-archive and extract it into `data/`, or set `DATA_DIR` to its location. File integrity can be
+The derived data used in the paper are attached to release v1.0.0 of this repository
+(https://github.com/Sajib-006/neuro-oncology-digital-twin/releases/tag/v1.0.0) as `brain_tumor_ai_data_release_v1.zip`. Extract it so that its `release/` folder becomes
+`data/`, or set `DATA_DIR` to that folder. File integrity can be
 checked with `sha256sum -c SHA256SUMS`. All files and columns are described in
 [`data/README.md`](data/README.md).
 
