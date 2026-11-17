@@ -84,6 +84,7 @@ figures:  ## Figure 1 (PPTX), Figures 2 to 5 from derived data, then Figure 6 (n
 	$(PYTHON) $(S)/figures/fig4_integration.py
 	$(PYTHON) $(S)/figures/fig5_translation.py
 	$(PYTHON) $(S)/figures/fig6_digital_twin.py
+	$(PYTHON) $(S)/figures/figS1_workflow.py
 
 fig6:  ## Figure 6 only
 	$(PYTHON) $(S)/figures/fig6_digital_twin.py
