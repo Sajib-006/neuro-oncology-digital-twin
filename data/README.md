@@ -1,7 +1,7 @@
 # Derived data
 
-The derived data are not stored in git. They are attached to release v1.0.0 of this repository
-as one archive (https://github.com/Sajib-006/neuro-oncology-digital-twin/releases/tag/v1.0.0). Unpack it here, or anywhere and point `DATA_DIR` at it. The archive is made by
+The derived data are not stored in git. They are attached to release v1.1.0 of this repository
+as one archive (https://github.com/Sajib-006/neuro-oncology-digital-twin/releases/tag/v1.1.0). Unpack it here, or anywhere and point `DATA_DIR` at it. The archive is made by
 `scripts/make_data_release.py`, which also writes `SHA256SUMS` (full sha256 of every file;
 check with `sha256sum -c SHA256SUMS`) and `MANIFEST.csv`.
 

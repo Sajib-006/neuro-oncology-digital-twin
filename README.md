@@ -16,8 +16,9 @@ The review is supported by four analyses:
    evaluation design (Figs. 3f-g, 4 and 5a; Supplementary Fig. S2).
 3. **Clinical translation.** AI-related clinical trials from ClinicalTrials.gov and AI-enabled
    medical devices from the FDA list, screened by two independent reviewers with
-   adjudication by a third (Fig. 5b-c; Supplementary Tables S7 and S8).
-4. **Figures without data.** The overview in Fig. 1 and the digital-twin roadmap in Fig. 6.
+   adjudication by a third (Fig. 5b-c; Supplementary Fig. S1; Supplementary Tables S7 and S8).
+4. **Schematic figures.** The overview in Fig. 1, the analysis pipeline in Fig. 2 and the
+   digital-twin roadmap in Fig. 6.
 
 ```
 Scopus API ----------------> literature/01-02, 05 --> literature/03 (tags) --> literature/04, 06-09
@@ -77,8 +78,8 @@ Alternatively, create a Python 3.11 virtual environment and run
 
 ## Data
 
-The derived data used in the paper are attached to release v1.0.0 of this repository
-(https://github.com/Sajib-006/neuro-oncology-digital-twin/releases/tag/v1.0.0) as `brain_tumor_ai_data_release_v1.zip`. Extract it so that its `release/` folder becomes
+The derived data used in the paper are attached to release v1.1.0 of this repository
+(https://github.com/Sajib-006/neuro-oncology-digital-twin/releases/tag/v1.1.0) as `brain_tumor_ai_data_release_v1.zip`. Extract it so that its `release/` folder becomes
 `data/`, or set `DATA_DIR` to that folder. File integrity can be
 checked with `sha256sum -c SHA256SUMS`. All files and columns are described in
 [`data/README.md`](data/README.md).
