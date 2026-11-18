@@ -26,7 +26,7 @@ def _font(name):
 FONT = ImageFont.truetype(_font("Arial.ttf"), 200)
 FONT_B = ImageFont.truetype(_font("Arial Bold.ttf"), 200)
 PT = 25.4 / 72
-W, H = 183.0, 88.0
+W, H = 183.0, 100.0
 INK, INK2 = "#1f1f1f", "#3d3d3d"
 # lane: (dark, stage gradient from light to mid)
 LANES = {"lit": ("#2F4A80", ["#EEF2FA", "#DCE5F4", "#C6D4EC", "#2F4A80"]),
@@ -144,7 +144,7 @@ def g_lists(cx, cy, col):
 
 # ------------------------------------------------------------------ layout
 LX, LW = 0.5, 22.0
-CX0, CW, CH, OV = LX + LW + 2.5, 40.0, 22.0, 1.3        # stages overlap slightly (arrow look)
+CX0, CW, CH, OV = LX + LW + 2.5, 40.0, 26.0, 1.3        # stages overlap slightly (arrow look)
 Y0, RG = 11.5, 4.2
 
 
@@ -160,14 +160,15 @@ def header():
         T(x, 7.1, lab, pt=8, bold=True, anchor="middle")
 
 
-def lane(ri, key, name, lane_icon, stages):
+def lane(ri, key, name, purpose, lane_icon, stages):
     dark, fills = LANES[key]
     y = Y0 + ri * (CH + RG)
-    # lane label: icon in a circle, name below
     circle(LX + LW / 2, y + 8.0, 7.2, fills[1])
     icon(lane_icon[0], LX + LW / 2, y + 8.0, lane_icon[1])
     for j, t in enumerate(name):
-        T(LX + LW / 2, y + 18.6 + j * 3.1, t, pt=7.5, bold=True, color=dark, maxw=LW)
+        T(LX + LW / 2, y + 19.0 + j * 3.1, t, pt=7.5, bold=True, color=dark, maxw=LW)
+    for j, t in enumerate(purpose):
+        T(LX + LW / 2, y + 19.0 + len(name) * 3.1 + 0.3 + j * 2.6, t, pt=6.2, color=INK2, maxw=LW + 1)
     for i, (glyph, big, small) in enumerate(stages):
         x = sx(i)
         last = i == 3
@@ -179,32 +180,33 @@ def lane(ri, key, name, lane_icon, stages):
         cx = x + CW / 2 + (1.2 if i else -0.6)
         txt = "white" if last else dark
         if isinstance(glyph, tuple):
-            icon(glyph[0], cx, y + 7.2, glyph[1], white=last)
+            icon(glyph[0], cx, y + 7.0, glyph[1], white=last)
         else:
-            glyph(cx, y + 7.2, dark)
-        T(cx, y + 16.0, big, pt=8.5, bold=True, color=txt, maxw=CW - 9)
-        T(cx, y + 19.4, small, pt=6.5, color="white" if last else INK2, maxw=CW - 9)
+            glyph(cx, y + 7.0, dark)
+        T(cx, y + 15.8, big, pt=8.5, bold=True, color=txt, maxw=CW - 9)
+        for k, line in enumerate(small):
+            T(cx, y + 19.3 + k * 2.75, line, pt=6.5, color="white" if last else INK2, maxw=CW - 8.5)
 
 
 def build():
     header()
-    lane(0, "lit", ["Literature"], ("notepad.svg", 8.5), [
-        (("OpenClipart__database-colored.svg", 9.5), "Scopus", "2015 to 2026"),
-        (g_papers, "13,423", "AI research papers"),
-        (g_tags, "κ = 0.92", "tags, hand-checked"),
-        (g_trend, "Fig. 4", "data types apart"),
+    lane(0, "lit", ["Literature"], ["what AI studies"], ("notepad.svg", 8.5), [
+        (("OpenClipart__database-colored.svg", 9.5), "Scopus search", ["tumor terms AND AI terms", "2015 to 2026"]),
+        (g_papers, "13,423 papers", ["AI research articles", "reviews removed"]),
+        (g_tags, "Keyword tags", ["data types, tasks, models", "hand check, \u03ba = 0.92"]),
+        (g_trend, "1.8%", ["name 2+ data types", "Fig. 4, gap 2"]),
     ])
-    lane(1, "kb", ["Knowledge", "bases"], ("Servier__dna-1.svg", 10.0), [
-        (("ChenxinLi__Network.svg", 8.5), "Open Targets", "CTD, DisGeNET"),
-        (g_matrix, "10 tumors", "gene × tumor maps"),
-        (("Servier__brain-2.svg", 10.0), "Similarity", "versus coverage"),
-        (g_bars, "Fig. 3", "uneven knowledge"),
+    lane(1, "kb", ["Knowledge", "bases"], ["genes per tumor"], ("Servier__dna-1.svg", 10.0), [
+        (("ChenxinLi__Network.svg", 8.5), "3 resources", ["Open Targets, CTD,", "DisGeNET"]),
+        (g_matrix, "10 tumor classes", ["gene \u00d7 tumor maps", "two evidence levels"]),
+        (("Servier__brain-2.svg", 10.0), "Similarity test", ["versus coverage:", "planned test failed"]),
+        (g_bars, "3 vs 779 genes", ["curated, DMG vs GBM", "Fig. 3, gap 1"]),
     ])
-    lane(2, "pat", ["Trials and", "devices"], ("Marcel_Tisch__patient.svg", 10.0), [
-        (("Examination_Man.svg", 10.0), "6,008 | 1,614", "trials | FDA devices"),
-        (("notepad.svg", 9.0), "118 | 35", "AI and brain tumor"),
-        (g_screen, "κ = 0.81 | 0.20", "two screeners"),
-        (g_lists, "77 | 12", "Fig. 5"),
+    lane(2, "pat", ["Trials and", "devices"], ["what reaches patients"], ("Marcel_Tisch__patient.svg", 10.0), [
+        (("Examination_Man.svg", 10.0), "6,008 | 1,614", ["trials | FDA devices", "registry and FDA list"]),
+        (("notepad.svg", 9.0), "118 | 35", ["name AI and", "a primary brain tumor"]),
+        (g_screen, "Two screeners", ["\u03ba = 0.81 | 0.20", "third reviewer settles"]),
+        (g_lists, "77 | 12", ["0 of 28 overdue trials", "posted results; Fig. 5"]),
     ])
 
 
