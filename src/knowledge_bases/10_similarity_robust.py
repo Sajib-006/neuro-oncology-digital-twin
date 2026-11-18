@@ -1,4 +1,4 @@
-"""Further tests of whether tumor-class similarity reflects coverage (Fig. 2e; not pre-specified).
+"""Further tests of whether tumor-class similarity reflects coverage (Fig. 3e; not pre-specified).
 
 Input : matrices/<kb>_<level>_gene_entity.csv           (06_build_matrices.py)
 Output: similarity_robust/pairs_<kb>_<level>.csv        per pair: sizes, overlap, three scores

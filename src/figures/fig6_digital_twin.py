@@ -395,12 +395,12 @@ def build():
 
     # ================= key =================
     T(1.5, 99.0, "Published prototype", pt=6.5, bold=True, anchor="start")
-    k2 = 36.5 + text_w("Uneven tumor knowledge (Fig. 2)", 6.5) + 11.0
+    k2 = 36.5 + text_w("Uneven tumor knowledge (Fig. 3)", 6.5) + 11.0
     status(36.5, 99.0, "Exists", True, anchor="start")
     status(k2, 99.0, "None found", False, anchor="start")
     T(1.5, 103.6, "Gaps measured in this review", pt=6.5, bold=True, anchor="start")
     kx = 36.5
-    for i, s in enumerate(["Uneven tumor knowledge (Fig. 2)", "Data types studied apart (Figs 3, 4)",
+    for i, s in enumerate(["Uneven tumor knowledge (Fig. 3)", "Data types studied apart (Fig. 4)",
                            "Little testing in patients (Fig. 5)"]):
         gap(kx + 1.5, 102.9, i + 1)
         T(kx + 4.0, 103.6, s, pt=6.5, anchor="start")

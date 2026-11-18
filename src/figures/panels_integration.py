@@ -1,7 +1,7 @@
-"""Figure 4: few AI studies combine data types.
+"""Panels for Figure 4 (c to e): few AI studies combine data types.
 
 Input : lit/tagged_records.csv.gz (literature/03_tag_records.py), through lit_data.focused_research()
-Output: FIG_DIR/fig4_integration.{pdf,png}; prints the numbers shown in panels b and c
+Output: FIG_DIR/panels_integration.{pdf,png}; prints the numbers shown in panels b and c
 
   a  data type x task: log2(observed / expected) co-occurrence in AI research papers
      2015-2026, expected = row total x column total / N. Counts printed in cells; cells
@@ -11,7 +11,7 @@ Output: FIG_DIR/fig4_integration.{pdf,png}; prints the numbers shown in panels b
      (title/keywords or >= 2 abstract mentions) and lenient (any mention). The word
      "multimodal" is NOT used to measure this.
   c  which data-type pairs are named together (strict), pooled 2015-2026.
-Run: python src/figures/fig4_integration.py
+Run: python src/figures/panels_integration.py
 """
 import os, sys, itertools
 import numpy as np
@@ -39,7 +39,7 @@ SHORT = {"M1_neuroimaging": "Imaging", "M2_pathology": "Pathology", "M3_bulk_omi
          "M4_single_cell": "Single-cell", "M5_spatial": "Spatial", "M6_clinical_text": "Clinical text"}
 
 
-def panel_enrichment(ax, df):
+def panel_enrichment(ax, df, label="a"):
     N = len(df)
     O = np.array([[((df[f"{m}_used"] == 1) & (df[t] == 1)).sum() for t in TASKS] for m in MODS], float)
     rows = np.array([(df[f"{m}_used"] == 1).sum() for m in MODS], float)
@@ -85,10 +85,11 @@ def panel_enrichment(ax, df):
     cb.set_label("Observed / expected", fontsize=style.SMALL_PT)
     cb.outline.set_linewidth(1.0)
     cax.tick_params(labelsize=style.SMALL_PT, length=2, width=0.4)
-    style.panel_label(ax, "a", dx=-0.62, dy=1.08)
+    if label:  # None when another figure places the letters
+        style.panel_label(ax, label, dx=-0.62, dy=1.08)
 
 
-def panel_share(ax, df):
+def panel_share(ax, df, label="b"):
     tot = df.groupby("year").size().reindex(D.YEARS)
     mcols = [f"{m}_mention" for m in MODS]
     lenient = (df[mcols].sum(axis=1) >= 2).groupby(df.year).sum().reindex(D.YEARS)
@@ -114,10 +115,11 @@ def panel_share(ax, df):
           f"lenient total {int(lenient.sum()):,}")
     ax.set_title(f"Overall {p_all:.1f}% ({int(df.multimodal_used.sum()):,} of {len(df):,})",
                  loc="center", fontsize=style.SMALL_PT, pad=3)
-    style.panel_label(ax, "b", dx=-0.30, dy=1.10)
+    if label:  # None when another figure places the letters
+        style.panel_label(ax, label, dx=-0.30, dy=1.10)
 
 
-def panel_pairs(ax, df):
+def panel_pairs(ax, df, label="c"):
     pairs = []
     for a, b in itertools.combinations(MODS, 2):
         n = int(((df[f"{a}_used"] == 1) & (df[f"{b}_used"] == 1)).sum())
@@ -134,7 +136,8 @@ def panel_pairs(ax, df):
     ax.tick_params(axis="y", length=0)
     ax.set_xlabel("Papers naming both, 2015–2026")
     ax.set_xlim(0, max(n for n, _ in pairs) * 1.18)
-    style.panel_label(ax, "c", dx=-0.40, dy=1.10)
+    if label:  # None when another figure places the letters
+        style.panel_label(ax, label, dx=-0.40, dy=1.10)
 
 
 def main():
@@ -148,7 +151,7 @@ def main():
     panel_share(fig.add_subplot(gs[0, 1]), df)
     panel_pairs(fig.add_subplot(gs[1, 1]), df)
     for ext in ("pdf", "png"):
-        p = config.fig_path(f"fig4_integration.{ext}")
+        p = config.fig_path(f"panels_integration.{ext}")
         fig.savefig(p, dpi=400)
         print("written ->", p)
 

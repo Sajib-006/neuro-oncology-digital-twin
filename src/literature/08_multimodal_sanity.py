@@ -1,4 +1,4 @@
-"""Check of the combined-data measure (Fig. 4b lenient line; Section 4 text).
+"""Check of the combined-data measure (Fig. 4d lenient line; Section 4 text).
 
 Input : lit/tagged_records.csv.gz   (03_tag_records.py)
 Output: printed only: mention vs used rate per data type, number of data types per paper,

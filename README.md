@@ -10,10 +10,10 @@ The review is supported by four analyses:
 
 1. **Knowledge-base coverage.** Gene associations for ten primary brain tumor classes in
    Open Targets, CTD and DisGeNET, and a test of whether tumor-tumor similarity reflects
-   database coverage (Fig. 2a-e).
+   database coverage (Fig. 3a-e).
 2. **Literature survey.** 13,423 research articles on AI for brain tumors retrieved from
    Scopus and annotated with rule-based tags for data type, model family, clinical task and
-   evaluation design (Figs. 2f-g, 3, 4 and 5a).
+   evaluation design (Figs. 3f-g, 4 and 5a; Supplementary Fig. S2).
 3. **Clinical translation.** AI-related clinical trials from ClinicalTrials.gov and AI-enabled
    medical devices from the FDA list, screened by two independent reviewers with
    adjudication by a third (Fig. 5b-c; Supplementary Tables S7 and S8).
@@ -60,7 +60,7 @@ inputs and outputs.
 - `pdftotext` from poppler (version 22.02.0 in the paper; device stage only).
 - `curl` and `sha256sum` (download scripts).
 - Arial font files (`Arial.ttf`, `Arial Bold.ttf`, `Arial Italic.ttf`) in `src/figures/fonts/`,
-  or a folder given by `FONT_DIR`. If Arial is missing, Figs. 2-5 fall back to a metric-similar
+  or a folder given by `FONT_DIR`. If Arial is missing, Figs. 3-5 fall back to a metric-similar
   font.
 
 ## Installation
@@ -149,13 +149,13 @@ reproduce the published values exactly.
 
 | Paper item | Script | Output (under `OUT_DIR`) |
 |---|---|---|
-| Fig. 2a-b; genes per tumor class | `knowledge_bases/06_build_matrices.py` | `support_counts.csv` |
-| Fig. 2c-d; similarity correlations | `knowledge_bases/07_similarity.py` | `similarity_long.csv` |
+| Fig. 3a-b; genes per tumor class | `knowledge_bases/06_build_matrices.py` | `support_counts.csv` |
+| Fig. 3c-d; similarity correlations | `knowledge_bases/07_similarity.py` | `similarity_long.csv` |
 | Pre-specified null test | `knowledge_bases/09_null_similarity.py` | `null_similarity/size_check.csv` |
-| Fig. 2e; Curveball and size-matched checks | `knowledge_bases/10_similarity_robust.py` | `similarity_robust/size_check_robust.csv` |
-| Fig. 2f-g; AI share per tumor class | `literature/05_entity_counts.py` | `lit/entity_counts.csv` |
-| Fig. 3a; AI share per data type | `literature/01_scopus_counts.py` | `lit/counts_by_year_focused_research.csv` |
-| Figs. 3b-c, 4 and 5a | `literature/03_tag_records.py` | `lit/tagged_records.csv.gz` |
+| Fig. 3e; Curveball and size-matched checks | `knowledge_bases/10_similarity_robust.py` | `similarity_robust/size_check_robust.csv` |
+| Fig. 3f-g; AI share per tumor class | `literature/05_entity_counts.py` | `lit/entity_counts.csv` |
+| Fig. 4a; AI share per data type | `literature/01_scopus_counts.py` | `lit/counts_by_year_focused_research.csv` |
+| Figs. 4b-e and 5a; Supplementary Fig. S2 | `literature/03_tag_records.py` | `lit/tagged_records.csv.gz` |
 | Literature statistics in the text | `literature/06_headline_numbers.py` | `lit/headline_numbers.csv`, `lit/share_by_year.csv` |
 | Supplementary Note 1 (automatic checks) | `literature/04_checks.py` | `lit/checks.csv` |
 | Supplementary Tables S1 and S4 | `literature/07_supplement_tables.py` | `supplement/S_search_blocks.tex`, `supplement/S_entities.tex` |
@@ -165,9 +165,10 @@ reproduce the published values exactly.
 | Fig. 5b-c | `screening/01_final_screening.py` | `trials/trial_share_by_start_year_screened.csv`, `audit/screening_final_devices.csv` |
 | Supplementary Tables S7 and S8 | `screening/01_final_screening.py` | `audit/screening_final_trials.csv`, `audit/screening_final_devices.csv` |
 | Tag validation (Methods) | `screening/04_settle_tag_check.py`, `screening/03_score_tag_check.py` | `tag_check_scores/tag_check_scores.csv`, `tag_check_kappa.csv` |
-| Supplementary Fig. S1 (analysis workflow) | `figures/figS1_workflow.py` | `FIG_DIR/figS1_workflow.pdf` |
+| Fig. 2 (pipeline) | `figures/fig2_pipeline.py` | `FIG_DIR/fig2_pipeline.pdf` |
+| Supplementary Figs. S1 (screening flow) and S2 (models and tasks) | `figures/figS1_screening_flow.py`, `figures/figS2_models_tasks.py` | `FIG_DIR/figS1_screening_flow.pdf`, `figS2_models_tasks.pdf` |
 | Fig. 1 (overview) | `figures/fig1_overview.py` | `FIG_DIR/fig1_overview.pptx` (editable; exported to PDF) |
-| Figs. 2-6 | `figures/fig2_knowledge.py` to `figures/fig6_digital_twin.py` | `FIG_DIR/fig2_knowledge.pdf` to `fig6_digital_twin.pdf` |
+| Figs. 3-6 | `figures/fig3_knowledge.py`, `fig4_literature.py`, `fig5_translation.py`, `fig6_digital_twin.py` | `FIG_DIR/fig3_knowledge.pdf` to `fig6_digital_twin.pdf` |
 
 ## Human screening and tag validation
 

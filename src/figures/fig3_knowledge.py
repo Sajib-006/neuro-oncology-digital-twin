@@ -1,15 +1,15 @@
-"""Figure 2: knowledge and AI research both concentrate on a few common tumors.
+"""Figure 3: knowledge and AI research both concentrate on a few common tumors.
 
 Input : support_counts.csv, similarity_long.csv, null_similarity/, similarity_robust/
         (src/knowledge_bases/), lit/entity_counts.csv (src/literature/05_entity_counts.py)
-Output: FIG_DIR/fig2_knowledge.{pdf,png}; prints the correlations shown in panels c-e and g
+Output: FIG_DIR/fig3_knowledge.{pdf,png}; prints the correlations shown in panels c-e and g
 
   row 1  a coverage matrix; b evidence-level bars           (knowledge is uneven)
   row 2  c-e similarity vs size: Jaccard, cosine, null      (so similarity tracks coverage)
   row 3  f AI share per tumor; g AI papers vs genes          (and AI attention follows it)
 Okabe-Ito resource colors, ColorBrewer YlGnBu heatmap, plain tick labels on log axes,
 one shared key for row 2, panel letters on one grid.
-Run: python src/figures/fig2_knowledge.py
+Run: python src/figures/fig3_knowledge.py
 """
 import os, sys
 import numpy as np
@@ -90,7 +90,7 @@ def main():
     letter("f", xl, row3); letter("g", xr, row3)
 
     for ext in ("pdf", "png"):
-        p = config.fig_path(f"fig2_knowledge.{ext}")
+        p = config.fig_path(f"fig3_knowledge.{ext}")
         fig.savefig(p, dpi=400)
         print("written ->", p)
 

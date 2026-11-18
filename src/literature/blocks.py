@@ -298,7 +298,7 @@ NORMALIZER_ONCOLOGY = ["cancer*", "oncolog*", "tumor*", "tumour*", "neoplas*",
 FILTERS = ("AND ( DOCTYPE(ar) OR DOCTYPE(re) OR DOCTYPE(cp) ) "
            "AND LANGUAGE(english)")
 # Research papers only (articles and conference papers, no reviews). Used for the
-# Fig. 3a counts from 2026-09-28 so that panel a has the same document types as b and c.
+# Fig. 4a counts from 2026-09-28 so that panel a has the same document types as b and c.
 FILTERS_RESEARCH = "AND ( DOCTYPE(ar) OR DOCTYPE(cp) ) AND LANGUAGE(english)"
 
 

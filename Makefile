@@ -77,14 +77,15 @@ tag-check:  ## draw the tag hand-check sample (needs the Scopus records)
 	$(PYTHON) $(S)/screening/02_make_tag_check.py
 
 # ---------------------------------------------------------------- figures
-figures:  ## Figure 1 (PPTX), Figures 2 to 5 from derived data, then Figure 6 (needs Chrome)
+figures:  ## Figures 1 to 6 and Supplementary Figures S1, S2 (Fig. 1 needs cairo; Figs. 2, 6, S1 need Chrome)
 	$(PYTHON) $(S)/figures/fig1_overview.py
-	$(PYTHON) $(S)/figures/fig2_knowledge.py
-	$(PYTHON) $(S)/figures/fig3_landscape.py
-	$(PYTHON) $(S)/figures/fig4_integration.py
+	$(PYTHON) $(S)/figures/fig2_pipeline.py
+	$(PYTHON) $(S)/figures/fig3_knowledge.py
+	$(PYTHON) $(S)/figures/fig4_literature.py
 	$(PYTHON) $(S)/figures/fig5_translation.py
 	$(PYTHON) $(S)/figures/fig6_digital_twin.py
-	$(PYTHON) $(S)/figures/figS1_workflow.py
+	$(PYTHON) $(S)/figures/figS1_screening_flow.py
+	$(PYTHON) $(S)/figures/figS2_models_tasks.py
 
 fig6:  ## Figure 6 only
 	$(PYTHON) $(S)/figures/fig6_digital_twin.py

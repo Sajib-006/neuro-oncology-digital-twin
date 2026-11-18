@@ -1,4 +1,4 @@
-"""Panels a-e of Figure 2 (knowledge-base coverage), used by fig2_knowledge.py.
+"""Panels a-e of Figure 3 (knowledge-base coverage), used by fig3_knowledge.py.
 
 Input : support_counts.csv, similarity_long.csv (knowledge_bases/06, 07),
         similarity_robust/pairs_<kb>_<level>.csv (knowledge_bases/10),

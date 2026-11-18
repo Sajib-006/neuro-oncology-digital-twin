@@ -1,4 +1,4 @@
-"""Scopus counts per tumor class, 2015-2026 pooled (Fig. 2f,g).
+"""Scopus counts per tumor class, 2015-2026 pooled (Fig. 3f,g).
 
 Input : the Scopus Search API (network; needs SCOPUS_API_KEY in the environment)
 Output: lit/entity_counts.csv   papers_all, papers_ai and ai_share per class

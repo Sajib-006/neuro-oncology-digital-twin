@@ -1,4 +1,4 @@
-"""Pairwise similarity of tumor classes, per knowledge base and evidence level (Fig. 2c,d).
+"""Pairwise similarity of tumor classes, per knowledge base and evidence level (Fig. 3c,d).
 
 Input : matrices/<kb>_<level>_gene_entity.csv     (06_build_matrices.py)
 Output: similarity/<kb>_<level>_<metric>.csv       class x class, metric = cosine or jaccard

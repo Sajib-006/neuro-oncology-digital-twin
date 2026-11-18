@@ -51,7 +51,7 @@ levels: OpenTargets curatedplusdrug and DisGeNET curatednoctd.
 | `lit/headline_numbers.csv` | literature/06 | name, value, detail (every literature number in the paper) |
 | `lit/share_by_year.csv` | literature/06 | year, n, k, share, lo, hi (papers naming 2+ data types, Wilson 95% CI) |
 
-`<form>` is visible, tak, focused or focused_research (the one used in Figure 3a).
+`<form>` is visible, tak, focused or focused_research (the one used in Figure 4a).
 
 ## Trials
 
